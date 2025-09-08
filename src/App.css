@@ -1,0 +1,242 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-paragraph {
+  animation: slide-in-left 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+/* Custom Cricket Ball Cursor Styles */
+.custom-cursor {
+  position: fixed;
+  width: 80px; /* Increased size for debugging */
+  height: 80px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease-out;
+  z-index: 9999;
+}
+
+.cricket-ball {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at center, #d32f2f 40%, #b71c1c 100%);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 10px #ffebee,
+    0 0 10px #b71c1c;
+  position: relative;
+  animation: ball-spin 4s linear infinite;
+  border: 2px solid white; /* Temporary border to debug visibility */
+}
+
+/* Cricket ball seam */
+.cricket-ball::before,
+.cricket-ball::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 4px;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 0 2px #fff;
+  transform-origin: center;
+}
+
+.cricket-ball::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cricket-ball::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+@keyframes ball-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Eye White (Sclera) */
+.custom-cursor::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    inset 0 0 10px rgba(0, 0, 0, 0.1),
+    0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Iris */
+.custom-cursor::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(135deg, #4a90e2, #7b68ee, #9370db);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    inset 0 0 8px rgba(0, 0, 0, 0.3),
+    0 0 10px rgba(74, 144, 226, 0.5);
+  animation: iris-shine 4s ease-in-out infinite;
+}
+
+/* Pupil */
+.custom-cursor .pupil {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: #000000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  animation: pupil-dilate 3s ease-in-out infinite alternate;
+}
+
+/* Eyelid */
+.custom-cursor .eyelid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 65px;
+  height: 45px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+  animation: blink 8s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+@keyframes iris-shine {
+  0%, 100% {
+    background: linear-gradient(135deg, #4a90e2, #7b68ee, #9370db);
+    box-shadow:
+      inset 0 0 8px rgba(0, 0, 0, 0.3),
+      0 0 10px rgba(74, 144, 226, 0.5);
+  }
+  50% {
+    background: linear-gradient(135deg, #7b68ee, #9370db, #4a90e2);
+    box-shadow:
+      inset 0 0 12px rgba(0, 0, 0, 0.4),
+      0 0 15px rgba(123, 104, 238, 0.7);
+  }
+}
+
+@keyframes pupil-dilate {
+  0% {
+    width: 10px;
+    height: 10px;
+  }
+  100% {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@keyframes blink {
+  0%, 95%, 100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scaleY(1);
+  }
+  97% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scaleY(0.1);
+  }
+  98% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scaleY(0.05);
+  }
+  99% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scaleY(0.1);
+  }
+}
+
+/* Hover effects for interactive elements */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+a:hover ~ .custom-cursor::after,
+button:hover ~ .custom-cursor::after {
+  animation-duration: 1s;
+  box-shadow:
+    inset 0 0 12px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(123, 104, 238, 0.8);
+}
+
+a:hover ~ .custom-cursor .pupil,
+button:hover ~ .custom-cursor .pupil {
+  animation-duration: 0.5s;
+  width: 16px;
+  height: 16px;
+}
